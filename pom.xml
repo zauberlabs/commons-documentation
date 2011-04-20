@@ -49,6 +49,14 @@
 
 
   <repositories>
+    <repository>
+      <id>zauber-code-releases</id>
+      <name>public zauber repository</name>
+      <url>https://repo1.zaubersoftware.com/zauber/code/releases</url>
+      <releases><enabled>true</enabled></releases>
+      <snapshots><enabled>false</enabled></snapshots>
+    </repository>
+ 
       <repository>
           <id>jboss-public-repository-group</id>
           <name>JBoss Public Maven Repository Group</name>
