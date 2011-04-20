@@ -2,14 +2,52 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-     <groupId>ar.com.zauber.commons</groupId>
-     <artifactId>zauber-commons-parent</artifactId>
-     <version>3.45-SNAPSHOT</version>
+    <artifactId>bare</artifactId>
+    <groupId>ar.com.zauber.maven.poms</groupId>
+    <version>1.0.8</version>
   </parent>
+
   <groupId>ar.com.zauber.commons.documentation</groupId>
   <artifactId>documentation-parent</artifactId>
   <packaging>pom</packaging>
+  <version>3.45-SNAPSHOT</version>
   <name>Zauber::Commons::Documentacion::</name>
+
+ <scm>
+    <connection>scm:git:git@github.com:zaubersoftware/commons-documentation.git</connection>
+    <url>scm:git:git@github.com:zaubersoftware/commons-documentation.git</url>
+    <developerConnection>scm:git:git@github.com:zaubersoftware/commons-documentation.git</developerConnection>
+  </scm>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+
+ <distributionManagement>
+    <repository>
+      <id>zauber-code-releases</id>
+      <name>Zauber Code Releases</name>
+      <url>https://repo1.zaubersoftware.com/zauber/code/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>zauber-code-snapshots</id>
+      <name>Zauber Code Snapshots</name>
+      <url>https://repo1.zaubersoftware.com/zauber/code/snapshots</url>
+    </snapshotRepository>
+    <site>
+       <id>zauber-code-releases</id>
+       <name>Zauber Site Stage</name>
+      <url>file:///tmp/commons-site</url>
+    </site>
+ </distributionManagement>
+
+
+
   <repositories>
       <repository>
           <id>jboss-public-repository-group</id>
@@ -41,7 +79,21 @@
     </pluginRepository>
  </pluginRepositories>
   
- 
+  <build>
+        <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+                <autoVersionSubmodules>true</autoVersionSubmodules>
+                <pushChanges>false</pushChanges>
+        </configuration>
+
+        <version>2.1</version>
+      </plugin>
+
+        </plugins>
+  </build>
   <modules>
     <module>style</module>
     <module>reference</module>
